@@ -1,12 +1,7 @@
 import './App.css'
-import { Routes, Route, Link } from 'react-router-dom'
-import axios from 'axios'
+import { Routes, Route } from 'react-router-dom'
 import Header from './components/Header'
 import Home from './components/Home'
-
-export const defaultURL = axios.create({
-  baseURL: 'https://ollies-nc-news.onrender.com/api'
-})
 
 function App() {
 
