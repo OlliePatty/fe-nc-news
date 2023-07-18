@@ -10,7 +10,7 @@
   text-align: center;
 }
 
-img{
+.image-card{
   width: 250px;
   height: 200px;
   border: 1px solid black;
@@ -25,10 +25,19 @@ img{
 }
 
 .article-card button{
-  margin-right: 2px
+  margin: 2px;
 }
 
 .article-card button:hover{
   cursor: pointer;
   background: black;
+}
+
+.single-article img{
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.single-article button{
+  margin: 2px;
 }

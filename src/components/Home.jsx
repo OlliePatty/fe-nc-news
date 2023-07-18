@@ -10,10 +10,8 @@ export default function Home() {
   useEffect(()=>{
     defaultURL.get('/articles')
     .then((response)=>{
-      return setArticles(response.data)
-    })
-    .then(()=>{
       setLoading(false)
+      return setArticles(response.data.articles)
     })
     .catch((error)=>{
       setError(error.response.data)
@@ -23,7 +21,7 @@ export default function Home() {
   return error ? <h2 className='error'>{error.status} {error.msg}</h2> : 
   loading ? <p>Loading</p> : (
     <main className='article-list'>
-      {articles.articles.map((article)=>{
+      {articles.map((article)=>{
         return <ArticleCard article={article} key={article.article_id}/>
       })}
     </main>
