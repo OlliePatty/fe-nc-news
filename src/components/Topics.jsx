@@ -17,15 +17,14 @@ export default function Topics() {
         })
       }, [])
 
-      console.log(topics)
-  return (
+  return loading ? <p>loading</p> : (
     <nav className='topics'>
         <Link to={`/`}>
             <button>Home</button>
                 </Link>
         {topics.map((topic)=>{
-            return <Link to={`/${topic.slug}/articles`} key={topic.slug}>
-            <button>{topic.slug}</button>
+            return <Link to={`/articles/topic/${topic.slug}`} key={topic.slug}>
+            <button>{topic.slug[0].toUpperCase() + topic.slug.slice(1,topic.slug.length)}</button>
                 </Link>
         })}
     </nav>
