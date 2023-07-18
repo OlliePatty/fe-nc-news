@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { defaultURL } from '../utils'
+import { getAllArticles } from '../utils'
 import ArticleCard from './ArticleCard'
 
 export default function Home() {
@@ -8,22 +8,20 @@ export default function Home() {
   const [ error, setError ] = useState(null)
 
   useEffect(()=>{
-    defaultURL.get('/articles')
+    getAllArticles()
     .then((response)=>{
-      return setArticles(response.data)
-    })
-    .then(()=>{
       setLoading(false)
+      return setArticles(response.data.articles)
     })
     .catch((error)=>{
-      setError(error.response.data)
+      setError(error.response)
     })
   }, [])
 
-  return error ? <h2 className='error'>{error.status} {error.msg}</h2> : 
-  loading ? <p>Loading</p> : (
+  return error ? <h2 className='error'>{error.status} {error.data.msg}</h2> : 
+  loading ? <p className='loading'>Loading</p> : (
     <main className='article-list'>
-      {articles.articles.map((article)=>{
+      {articles.map((article)=>{
         return <ArticleCard article={article} key={article.article_id}/>
       })}
     </main>
