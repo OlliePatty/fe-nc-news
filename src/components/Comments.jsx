@@ -17,7 +17,7 @@ export default function Comments({id}) {
         })
       }, [])
 
-  return error ? <h2 className='error'>{error.status} {error.data.msg}</h2> : 
+  return error ? <h2 className='error'>No comments</h2> : 
   loading ? <p className='loading'>Loading</p> : (
     <section>
         {comments.map((comment)=>{

@@ -32,7 +32,7 @@ export default function SingleArticle() {
         <p>Votes: {article.votes}</p>
         <button className='vote-button'>👍</button><button className='vote-button'>👎</button>
         <p>Comments: {article.comment_count}</p>
-        <Comments id={article.article_id}/>
+        <Comments id={id}/>
     </main>
   )
 }
