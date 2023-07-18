@@ -8,6 +8,12 @@
 
 .error{
   text-align: center;
+  font-size: 25px;
+}
+
+.loading{
+  text-align: center;
+  font-size: 25px;
 }
 
 .image-card{
@@ -15,6 +21,7 @@
   height: 200px;
   border: 1px solid black;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 .article-card{
@@ -24,11 +31,11 @@
   padding: 10px;
 }
 
-.article-card button{
+.vote-button{
   margin: 2px;
 }
 
-.article-card button:hover{
+.vote-button:hover{
   cursor: pointer;
   background: black;
 }
@@ -36,8 +43,4 @@
 .single-article img{
   border: 1px solid black;
   border-radius: 10px;
-}
-
-.single-article button{
-  margin: 2px;
 }

@@ -12,7 +12,7 @@ export default function ArticleCard({article}) {
               <h5>🕚 {article.created_at.slice(0, 10)}</h5>
               <p>Comments: {article.comment_count}</p>
               <p>Votes: {article.votes}</p>
-              <button>👍</button><button>👎</button>
+              <button className='vote-button'>👍</button><button className='vote-button'>👎</button>
           </article>
     )
 }

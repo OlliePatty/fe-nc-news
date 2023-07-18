@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom'
-import { defaultURL } from '../utils'
 import { useState, useEffect } from 'react'
+import { getArticlesById } from '../utils'
 
 export default function SingleArticle() {
     const { id } = useParams()
@@ -9,18 +9,18 @@ export default function SingleArticle() {
     const [ error, setError ] = useState(null)
 
     useEffect(()=>{
-        defaultURL.get(`/articles/${id}`)
+        getArticlesById(id)
         .then((response)=>{
         setLoading(false)
         return setArticle(response.data.article)
         })
         .catch((error)=>{
-          setError(error.response.data)
+          setError(error.response)
         })
       }, [])
 
-  return error ? <h2 className='error'>{error.status} {error.msg}</h2> : 
-  loading ? <p>Loading</p> : (
+  return error ? <h2 className='error'>{error.status} {error.data.msg}</h2> : 
+  loading ? <p className='loading'>Loading</p> : (
     <main className='single-article'>
         <img src={article.article_img_url} alt={article.title}/>
         <h2>{article.title}</h2>
@@ -28,7 +28,7 @@ export default function SingleArticle() {
         <h5>🕚 {article.created_at.slice(0, 10)}</h5>
         <p>{article.body}</p>
         <p>Votes: {article.votes}</p>
-        <button>👍</button><button>👎</button>
+        <button className='vote-button'>👍</button><button className='vote-button'>👎</button>
         <p>Comments: {article.comment_count}</p>
     </main>
   )
