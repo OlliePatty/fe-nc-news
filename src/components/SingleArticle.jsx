@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { getArticlesById } from '../utils'
 import Comments from './Comments'
+import Error from './Error'
 
 export default function SingleArticle() {
     const { id } = useParams()
@@ -16,11 +17,11 @@ export default function SingleArticle() {
         return setArticle(response.data.article)
         })
         .catch((error)=>{
-          setError(error.response)
+          setError(error)
         })
       }, [])
 
-  return error ? <h2 className='error'>{error.status} {error.data.msg}</h2> : 
+  return error ? <Error error={error}/> : 
   loading ? <p className='loading'>Loading</p> : (
     <main className='single-article'>
         <img src={article.article_img_url} alt={article.title}/>

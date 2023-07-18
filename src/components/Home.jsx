@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { getAllArticles } from '../utils'
 import ArticleCard from './ArticleCard'
+import Error from './Error'
 
 export default function Home() {
   const [ articles, setArticles ] = useState([])
@@ -14,11 +15,11 @@ export default function Home() {
       return setArticles(response.data.articles)
     })
     .catch((error)=>{
-      setError(error.response)
+      setError(error)
     })
   }, [])
 
-  return error ? <h2 className='error'>{error.status} {error.data.msg}</h2> : 
+  return error ? <Error error={error}/> : 
   loading ? <p className='loading'>Loading</p> : (
     <main className='article-list'>
       {articles.map((article)=>{

@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import SingleArticle from './SingleArticle'
 
 export default function ArticleCard({article}) {
     return (

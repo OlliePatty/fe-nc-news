@@ -13,7 +13,7 @@ export default function Comments({id}) {
         return setComments(response.data.comments)
         })
         .catch((error)=>{
-          setError(error.response)
+          setError(error)
         })
       }, [])
 
