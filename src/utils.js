@@ -15,3 +15,7 @@ import axios from 'axios'
   export function getCommentsById(id) {
     return defaultURL.get(`/articles/${id}/comments`)
   }
+
+  export function getAllTopics() {
+    return defaultURL.get('/topics')
+  }

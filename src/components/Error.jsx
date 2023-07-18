@@ -1,5 +1,3 @@
-import React from 'react'
-
 export default function Error({error}) {
     
   return error.message === 'Network Error' ? <p className='error' >{error.message}</p> :
