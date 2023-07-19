@@ -56,3 +56,13 @@
   text-align: center;
   margin: 10px;
 }
+
+.nav-button{
+  margin: 10px
+}
+
+.nav-button:hover{
+  cursor: pointer;
+  color: white;
+  background: black;
+}

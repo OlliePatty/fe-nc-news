@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import Topics from './Topics'
 
-
 export default function Header() {
   return (
     <header>
