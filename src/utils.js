@@ -4,8 +4,10 @@ import axios from 'axios'
     baseURL: 'https://ollies-nc-news.onrender.com/api'
   })
 
-  export function getAllArticles() {
-    return defaultURL.get('/articles')
+  export function getArticles(topic) {
+    return defaultURL.get('/articles', {
+          params : { topic: topic },
+        })
   }
 
   export function getArticlesById(id) {
@@ -14,4 +16,8 @@ import axios from 'axios'
 
   export function getCommentsById(id) {
     return defaultURL.get(`/articles/${id}/comments`)
+  }
+
+  export function getAllTopics(topic) {
+    return defaultURL.get('/topics')
   }
