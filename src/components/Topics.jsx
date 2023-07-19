@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react'
 import { getAllTopics } from '../utils'
 import { Link } from 'react-router-dom'
+import Error from './Error'
 
 export default function Topics() {
-    const [ loading, setLoading ] = useState(true)
     const [ topics, setTopics ] = useState([])
+    const [ loading, setLoading ] = useState(true)
+    const [ error, setError ] = useState(null)
 
     useEffect(()=>{
         getAllTopics()
@@ -17,7 +19,8 @@ export default function Topics() {
         })
       }, [])
 
-  return loading ? <p className='loading'>loading</p> : (
+  return error ? <Error error={error}/> :
+  loading ? <p className='loading'>Loading</p> : (
     <nav className='topics'>
         <Link to={`/`}>
             <button className='nav-button'>Home</button>

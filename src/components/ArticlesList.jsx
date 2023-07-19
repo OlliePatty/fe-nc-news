@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 import ArticleCard from './ArticleCard'
 import Error from './Error'
 
-export default function Home() {
+export default function ArticlesList() {
   const { topic } = useParams()
   const [ articles, setArticles ] = useState([])
   const [ loading, setLoading ] = useState(true)
