@@ -3,6 +3,7 @@ import { getArticles } from '../utils'
 import { useParams } from 'react-router-dom'
 import ArticleCard from './ArticleCard'
 import Error from './Error'
+import Loading from './Loading'
 
 export default function ArticlesList() {
   const { topic } = useParams()
@@ -12,9 +13,9 @@ export default function ArticlesList() {
 
   useEffect(()=>{
     getArticles(topic)
-    .then((response)=>{
+    .then((articlesData)=>{
       setLoading(false)
-      return setArticles(response.data.articles)
+      return setArticles(articlesData)
     })
     .catch((error)=>{
       setError(error)
@@ -22,7 +23,7 @@ export default function ArticlesList() {
   }, [topic])
 
   return error ? <Error error={error}/> : 
-  loading ? <p className='loading'>Loading</p> : (
+  loading ? <Loading /> : (
     <main className='article-list'>
       {articles.map((article)=>{
           return <ArticleCard article={article} key={article.article_id}/>

@@ -66,3 +66,11 @@
   color: white;
   background: black;
 }
+
+.like-on{
+  background: green;
+}
+
+.dislike-on{
+  background: red;
+}
