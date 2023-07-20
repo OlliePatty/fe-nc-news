@@ -24,7 +24,7 @@ export default function ArticleVotes({articleVotes, articleId}) {
       }
 
   return (
-    <div>
+    <section>
     <p>Votes: {votes}</p>
     <button className={clicked === 'liked' ? 'like-on' : null} onClick={(event)=>{
       if(clicked === null){
@@ -47,7 +47,7 @@ export default function ArticleVotes({articleVotes, articleId}) {
       }
     }} >👎</button>
     {error ? <p>{error}</p> : null}
-    </div>
+    </section>
   )
 
 }
