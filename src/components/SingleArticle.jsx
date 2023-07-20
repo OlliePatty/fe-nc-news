@@ -1,8 +1,10 @@
 import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-import { getArticlesById } from '../utils'
+import { getArticlesById, patchArticleVotes } from '../utils'
 import Comments from './Comments'
 import Error from './Error'
+import Loading from './Loading'
+import ArticleVotes from './ArticleVotes'
 
 export default function SingleArticle() {
     const { id } = useParams()
@@ -12,9 +14,9 @@ export default function SingleArticle() {
 
     useEffect(()=>{
         getArticlesById(id)
-        .then((response)=>{
+        .then((articleData)=>{
         setLoading(false)
-        return setArticle(response.data.article)
+        return setArticle(articleData)
         })
         .catch((error)=>{
           setError(error)
@@ -22,7 +24,7 @@ export default function SingleArticle() {
       }, [])
 
   return error ? <Error error={error}/> : 
-  loading ? <p className='loading'>Loading</p> : (
+  loading ? <Loading /> : (
     <main className='single-article'>
         <img src={article.article_img_url} alt={article.title}/>
         <h2>{article.title}</h2>
@@ -30,10 +32,8 @@ export default function SingleArticle() {
         <h5>🕚 {article.created_at.slice(0, 10)}</h5>
         <p>{article.body}</p>
         <br></br>
-        <p>Votes: {article.votes}</p>
-        <button className='vote-button'>👍</button><button className='vote-button'>👎</button>
-        <p>Comments: {article.comment_count}</p>
-        <Comments id={id}/>
+        <ArticleVotes articleVotes={article.votes} articleId={article.article_id}/>
+        <Comments commentCount={article.comment_count} articleId={article.article_id} />
     </main>
   )
 }

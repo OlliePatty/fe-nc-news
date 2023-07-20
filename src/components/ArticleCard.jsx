@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { patchArticleVotes } from '../utils'
 
 export default function ArticleCard({article}) {
     return (
@@ -11,7 +12,6 @@ export default function ArticleCard({article}) {
               <h5>🕚 {article.created_at.slice(0, 10)}</h5>
               <p>Comments: {article.comment_count}</p>
               <p>Votes: {article.votes}</p>
-              <button className='vote-button'>👍</button><button className='vote-button'>👎</button>
           </article>
     )
 }
