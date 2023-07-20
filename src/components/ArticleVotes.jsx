@@ -13,6 +13,13 @@ export default function ArticleVotes({articleVotes, articleId}) {
           return currVotes + vote
         })
         patchArticleVotes(id, vote).then(()=>{})
+        .catch((error)=>{
+          setClicked(null)
+          setError('Something went wrong, please refresh and try again.')
+          setVotes((currVotes)=>{
+            return currVotes - vote
+          })
+        })
       }
       }
 
