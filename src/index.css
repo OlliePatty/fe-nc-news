@@ -74,6 +74,12 @@
   margin-bottom: 50px;
 }
 
+.submit-comment-button:hover{
+  cursor: pointer;
+  color: white;
+  background: black;
+}
+
 .comment-list{
   border: 1px solid black;
   border-radius: 10px;

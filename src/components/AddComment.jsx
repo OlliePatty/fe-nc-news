@@ -37,7 +37,7 @@ function handleSubmit(event) {
     {error === 404 ? <p>❌ Please log in to post a comment</p> : null }
     {error === 400 ? <p>❌ Invalid comment</p> : null }
     {commentStatus ? <p>{commentStatus}</p> : null }
-    <button>Submit</button>
+    <button className='submit-comment-button'>Submit</button>
   </form>
   )
 }
