@@ -31,13 +31,30 @@
   padding: 10px;
 }
 
-.vote-button{
+.like-button{
   margin: 2px;
 }
 
-.vote-button:hover{
+.like-button:hover{
   cursor: pointer;
-  background: black;
+  background: green;
+}
+
+#like-button-on{
+  background: green;
+}
+
+.dislikelike-button{
+  margin: 2px;
+}
+
+.dislike-button:hover{
+  cursor: pointer;
+  background: red;
+}
+
+#dislike-button-on{
+  background: red;
 }
 
 .single-article img{
@@ -45,11 +62,28 @@
   border-radius: 10px;
 }
 
+.votes-section{
+  margin-top: 50px;
+}
+
+.comments-section{
+  margin-top: 50px;
+}
+
+.add-comments-section{
+  margin-bottom: 50px;
+}
+
 .comment-list{
   border: 1px solid black;
   border-radius: 10px;
   margin-bottom: 10px;
   padding: 5px;
+}
+
+#new-comment {
+  width: 600px;
+  height: 100px;
 }
 
 .topics{
@@ -67,10 +101,3 @@
   background: black;
 }
 
-.like-on{
-  background: green;
-}
-
-.dislike-on{
-  background: red;
-}

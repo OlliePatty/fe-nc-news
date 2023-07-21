@@ -24,9 +24,9 @@ export default function ArticleVotes({articleVotes, articleId}) {
       }
 
   return (
-    <section>
+    <section className='votes-section'>
     <p>Votes: {votes}</p>
-    <button className={clicked === 'liked' ? 'like-on' : null} onClick={(event)=>{
+    <button id={clicked === 'liked' ? 'like-button-on' : null} className='like-button' onClick={(event)=>{
       if(clicked === null){
         setClicked('liked')
         handleArticleVote(event, articleId, 1)
@@ -36,7 +36,7 @@ export default function ArticleVotes({articleVotes, articleId}) {
         handleArticleVote(event, articleId, -1)
       }
     }}>👍</button>
-    <button className={clicked === 'disliked' ? 'dislike-on' : null} onClick={(event)=>{
+    <button id={clicked === 'disliked' ? 'dislike-button-on' : null} className='dislike-button' onClick={(event)=>{
       if(clicked === null){
         setClicked('disliked')
         handleArticleVote(event, articleId, -1)
