@@ -35,10 +35,20 @@ import axios from 'axios'
   }
 
   export function patchArticleVotes(id, vote) {
-    return defaultURL.patch(`articles/${id}`, {
+    return defaultURL.patch(`/articles/${id}`, {
           inc_votes: vote
         })
         .then(({data})=>{
           return data.article
+        })
+  }
+
+  export function postComments(newComment, id) {
+    return defaultURL.post(`/articles/${id}/comments`, {
+          body: newComment,
+          username: 'grumpy19'
+        })
+        .then(({data})=>{
+          return data.comment
         })
   }

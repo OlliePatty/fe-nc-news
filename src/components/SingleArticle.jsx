@@ -29,11 +29,10 @@ export default function SingleArticle() {
         <img src={article.article_img_url} alt={article.title}/>
         <h2>{article.title}</h2>
         <h3>By: {article.author}</h3>
-        <h5>🕚 {article.created_at.slice(0, 10)}</h5>
+        <h5>🕚 {article.created_at.slice(8, 10)}{article.created_at.slice(4, 8)}{article.created_at.slice(0, 4)}</h5>
         <p>{article.body}</p>
-        <br></br>
         <ArticleVotes articleVotes={article.votes} articleId={article.article_id}/>
-        <Comments commentCount={article.comment_count} articleId={article.article_id} />
+        <Comments articleId={article.article_id} />
     </main>
   )
 }

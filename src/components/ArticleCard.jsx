@@ -9,9 +9,9 @@ export default function ArticleCard({article}) {
               <h3>{article.title}</h3>
               </Link>
               <h4>By: {article.author}</h4>
-              <h5>🕚 {article.created_at.slice(0, 10)}</h5>
-              <p>Comments: {article.comment_count}</p>
+              <h5>🕚 {article.created_at.slice(8, 10)}{article.created_at.slice(4, 8)}{article.created_at.slice(0, 4)}</h5>
               <p>Votes: {article.votes}</p>
+              <p>Comments: {article.comment_count}</p>
           </article>
     )
 }
